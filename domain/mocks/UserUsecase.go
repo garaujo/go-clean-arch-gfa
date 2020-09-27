@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	domain "github.com/go-clean-arch-gfa/domain"
+	domain "github.com/garaujo/go-clean-arch-gfa/domain"
 	mock "github.com/stretchr/testify/mock"
 )
 
@@ -26,13 +26,13 @@ func (_m *UserUsecase) Delete(id int64) error {
 	return r0
 }
 
-// Fetch provides a mock function with given fields:
-func (_m *UserUsecase) Fetch() ([]domain.User, error) {
-	ret := _m.Called()
+// Fetch provides a mock function with given fields: limit
+func (_m *UserUsecase) Fetch(limit int64) ([]domain.User, error) {
+	ret := _m.Called(limit)
 
 	var r0 []domain.User
-	if rf, ok := ret.Get(0).(func() []domain.User); ok {
-		r0 = rf()
+	if rf, ok := ret.Get(0).(func(int64) []domain.User); ok {
+		r0 = rf(limit)
 	} else {
 		if ret.Get(0) != nil {
 			r0 = ret.Get(0).([]domain.User)
@@ -40,8 +40,8 @@ func (_m *UserUsecase) Fetch() ([]domain.User, error) {
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func() error); ok {
-		r1 = rf()
+	if rf, ok := ret.Get(1).(func(int64) error); ok {
+		r1 = rf(limit)
 	} else {
 		r1 = ret.Error(1)
 	}

@@ -15,7 +15,7 @@ type User struct {
 
 // UserUsecase interface represents the user's use cases contract
 type UserUsecase interface {
-	Fetch() ([]User, error)
+	Fetch(limit int64) ([]User, error)
 	Store(u *User) error
 	Update(u *User) error
 	Delete(id int64) error
@@ -25,7 +25,7 @@ type UserUsecase interface {
 
 // UserRepository interface represents the user's repository contract
 type UserRepository interface {
-	Fetch() ([]User, error)
+	Fetch(limit int64) ([]User, error)
 	Store(u *User) error
 	Update(u *User) error
 	Delete(id int64) error
