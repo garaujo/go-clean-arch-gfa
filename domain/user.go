@@ -20,7 +20,7 @@ type UserUsecase interface {
 	Update(u *User) error
 	Delete(id int64) error
 	GetByID(id int64) (User, error)
-	GetByName(n string) (User, error)
+	GetByName(name string) (User, error)
 }
 
 // UserRepository interface represents the user's repository contract
@@ -30,5 +30,5 @@ type UserRepository interface {
 	Update(u *User) error
 	Delete(id int64) error
 	GetByID(id int64) (User, error)
-	GetByName(n string) (User, error)
+	GetByName(name string) (User, error)
 }
