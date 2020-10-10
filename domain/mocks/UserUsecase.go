@@ -70,20 +70,20 @@ func (_m *UserUsecase) GetByID(id int64) (domain.User, error) {
 	return r0, r1
 }
 
-// GetByName provides a mock function with given fields: n
-func (_m *UserUsecase) GetByName(n string) (domain.User, error) {
-	ret := _m.Called(n)
+// GetByName provides a mock function with given fields: name
+func (_m *UserUsecase) GetByName(name string) (domain.User, error) {
+	ret := _m.Called(name)
 
 	var r0 domain.User
 	if rf, ok := ret.Get(0).(func(string) domain.User); ok {
-		r0 = rf(n)
+		r0 = rf(name)
 	} else {
 		r0 = ret.Get(0).(domain.User)
 	}
 
 	var r1 error
 	if rf, ok := ret.Get(1).(func(string) error); ok {
-		r1 = rf(n)
+		r1 = rf(name)
 	} else {
 		r1 = ret.Error(1)
 	}
